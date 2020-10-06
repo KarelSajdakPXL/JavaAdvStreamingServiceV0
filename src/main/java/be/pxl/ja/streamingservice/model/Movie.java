@@ -43,9 +43,24 @@ public class Movie extends Content implements Playable{
         return duration >= LONG_PLAYING_TIME;
     }
     public String getPlayingTime() {
-        // TODO: implement this method correctly
-        return "2 u 30 min";
+        StringBuilder builder = new StringBuilder();
+        int minutes = duration % 60;
+        int hours = duration / 60;
+        if (duration == 0) {
+            builder.append("?");
+        }
+        else if (hours == 0) {
+            builder.append(minutes).append(" min");
+        }
+        else if (hours > 0 && minutes == 0){
+            builder.append(hours).append(" h");
+        }
+        else {
+            builder.append(hours).append(" h ").append(minutes).append(" min");
+        }
+        return builder.toString();
     }
+
     public void setGenre(Genre genre) {
         this.genre = genre;
     }
