@@ -1,18 +1,18 @@
 package be.pxl.ja.streamingservice.model;
 
 public enum Rating {
-    LITTLE_KIDS("Little Kids"),
-    OLDER_KIDS("Older Kids: vanaf 7 jaar"),
-    TEENS("Teens: vanaf 12 jaar"),
-    MATURE("Mature: vanaf 16 jaar");
+    LITTLE_KIDS(0),
+    OLDER_KIDS(7),
+    TEENS(12),
+    MATURE(16);
 
-    private String maturityRating;
+    private int minimumAge;
 
-    Rating(String maturityRating){
-        this.maturityRating = maturityRating;
+    Rating(int minimumAge){
+        this.minimumAge = minimumAge;
     }
 
-    public String getMaturityRating() {
-        return maturityRating;
+    public int getMinimumAge() {
+        return minimumAge;
     }
 }
